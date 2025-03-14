@@ -57,10 +57,7 @@ jobs:
       run: go build -v main.go
       
     - name: Create container image
-      uses: docker/build-push-action@v6.15.0
-      with:
-        pull: true
-        tag: 'curso_ci_2:latest'
+      run: docker image build -t curso_ci_2:latest .
     
     - name: Upload Artifact
       uses: actions/upload-artifact@v4.6.1
