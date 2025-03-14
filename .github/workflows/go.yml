@@ -49,5 +49,20 @@ jobs:
         os: ['ubuntu-latest']
     steps:
     - uses: actions/checkout@v3
+    - name: Set up Go
+      uses: actions/setup-go@v3
+      with:
+        go-version: '1.18'
     - name: Build
       run: go build -v main.go
+      
+    - name: Create container image
+      uses: docker/build-push-action@v6.15.0
+      with:
+        pull: true
+        tag: 'curso_ci_2:latest'
+    
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4.6.1
+      with:
+        path: curso_ci_2:latest
