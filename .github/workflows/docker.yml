@@ -18,10 +18,16 @@ jobs:
       with:
         username: lucbnaza
         password: ${{ secrets.PASSWORD }}
+    - name: Download main
+      uses: actions/download-artifact@v4.2.1
+      with:
+        name: main
+        path: main
           
     - name: Build and push to DockerHub
       uses: docker/build-push-action@v6.15.0
       with:
+        context: .
         push: true
         tags: lucbnaza/myrepo:latest-2
     
