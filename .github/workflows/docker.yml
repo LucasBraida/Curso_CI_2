@@ -23,6 +23,6 @@ jobs:
       uses: docker/build-push-action@v6.15.0
       with:
         push: true
-        tags: lucbnaza/myrepo:latest
+        tags: lucbnaza/myrepo:latest-2
     
   
